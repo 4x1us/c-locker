@@ -38,7 +38,7 @@ root.bg_img1 = PhotoImage(file='data/bg2.png')
 background_label1 = Label(root, image=root.bg_img1, bg='black')
 background_label1.pack()
 
-root.bg_img2 = PhotoImage(file='data/clown.png')
+root.bg_img2 = PhotoImage(file='data/clown.png', pady=25)
 background_label2 = Label(root, image=root.bg_img2, bg='black')
 background_label2.pack()
 
