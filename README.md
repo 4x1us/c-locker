@@ -1,1 +1,1 @@
-"# c-locker" 
+for the purpose of entertainment only!
